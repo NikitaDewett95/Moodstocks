@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	id="com.moodstocks.phonegap"
+    version="1.1.0">
+    <name>MS4Plugin</name>
+    <description>Moodstocks Phonegap Plugin</description>
+    <author>imactivate</author>
+	<license>MIT</license>
+    <keywords>moodstocks, image-recognition, ios, android, augmented-reality, barcode, qrcode</keywords>
+	
+	<dependency id="cordova-plugin-camera" url="https://github.com/apache/cordova-plugin-camera.git"  />
+ 
+	<js-module src="www/MS4Plugin.js" name="MS4Plugin">
+		<clobbers target="MS4Plugin" />
+	</js-module>
+ 
+	<!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MS4Plugin">
+                <param name="ios-package" value="MS4Plugin" />
+            </feature>
+        </config-file>
+		
+        <!-- header & source files -->
+        <header-file src="src/ios/MS4Plugin.h" />
+        <source-file src="src/ios/MS4Plugin.m" />
+        <header-file src="src/ios/ScannerViewController.h" />
+        <source-file src="src/ios/ScannerViewController.m" />
+        <resource-file src="src/ios/ScannerViewController.xib" />
+
+        <!-- system frameworks -->
+		<framework src="CFNetwork.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreVideo.framework" />
+        <framework src="QuartzCore.framework" />
+	</platform>		
+	
+    <!-- android -->
+    <platform name="android">
+
+		
+		<config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MS4Plugin">
+                <param name="android-package" value="com.moodstocks.phonegap.plugin.MS4Plugin"/>
+            </feature>
+        </config-file>
+		
+		<!-- uses permission & feature -->
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-feature
+                android:name="android.hardware.camera"
+                android:required="false" />
+            <uses-feature
+                android:name="android.hardware.camera.any"
+                android:required="false" />
+        </config-file>
+
+		<!-- source files -->		
+        <source-file src="src/android/MS4Plugin.java" target-dir="src/com/moodstocks/phonegap/plugin" /> 		
+		
+        <source-file src="src/android/MainActivity.java" target-dir="src/com/moodstocks/phonegap/plugin" /> 
+		<source-file src="src/android/AutoScanFragment.java" target-dir="src/com/moodstocks/phonegap/plugin" />
+		<source-file src="src/android/CordovaFragment.java" target-dir="src/com/moodstocks/phonegap/plugin" />
+        <source-file src="src/android/ManualScanFragment.java" target-dir="src/com/moodstocks/phonegap/plugin" />
+		
+        <source-file src="src/android/activity_main.xml" target-dir="res/layout" />      
+        <source-file src="src/android/fragment_cordova.xml" target-dir="res/layout" />      
+        <source-file src="src/android/fragment_scan.xml" target-dir="res/layout" /> 
+
+     </platform>          
+</plugin>

@@ -1,0 +1,172 @@
+<!doctype html>
+
+<head>
+    
+	<title>Moodstocks v4 SDK for phonegap demo by imactivate</title>
+	<!-- MS4Plugin.js is loaded by the Phonegap plugin manager. We don't need to worry about it -->
+	<!-- cordova.js is only loaded on mobile so we can do desktop debugging -->
+	<script>
+        document.write('<script type="text/javascript" src="cordova.js"><\/script>');
+         
+	</script>
+    
+    <style>
+        html,
+        body {
+            font-family: sans-serif;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+        }
+    
+    #moodstocksLogo {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        background-color: #0e725f;
+        text-align: center;
+    }
+    
+    #moodstocksLogoImage {
+        max-height: 18%;
+        width: 55%;
+        height: auto;
+        padding: 0.5em;
+    }
+    
+    #actionHolder,
+    #statusHolder {
+        bottom: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        border-spacing: 0;
+    }
+    
+    #actionHolder {
+        border-spacing: 0.5em;
+    }
+    
+    .bigButton {
+        padding: 2em 0em 2em 0em;
+        text-align: center;
+        color: white;
+        font-size: 1em;
+        width: 45%;
+        background-color: #149f84;
+        border-radius: 0.5em;
+        -webkit-transition: all 0.8s;
+    }
+    
+    #cameraStatus,
+    #syncStatus,
+    #bundleStatus {
+        color: white;
+        text-align: center;
+        font-size: 1em;
+        padding: 0.6em 0em 0.6em 0em;
+        margin: 0;
+        width: 33.333333333333333%;
+        display: inline-block;
+        background-color: orange;
+        transition: all 0.5s;
+    }
+    
+    .smallButton {
+        -webkit-transition: all 0.8s;
+        -webkit-transform: scale(0);
+        padding: 1em 0em 1em 0em;
+    }
+    
+    #statusAndControl {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+    }
+    
+    #scanControlAndResults {
+        width: 100%;
+        color: white;
+        border-spacing: 0.5em;
+    }
+    
+    #scanControlAndResults td {
+        background-color: #149f84;
+        text-align: center;
+        width: 33.3333333333333%;
+        border-radius: 0.5em;
+    }
+    
+    #settings {
+        box-shadow: 0px 0px 50px #000;
+        padding: 5%;
+        border: 8px solid #0e725f;
+        border-radius: 2em;
+        color: white;
+        position: absolute;
+        width: 70%;
+        left: 10%;
+        top: 10%;
+        background-color: #149f84;
+        -webkit-transform: scale(0);
+        transition: all 0.5s;
+        line-height: 150%;
+    }
+    
+    #close {
+        position: absolute;
+        height: 40px;
+        right: 10px;
+        top: 10px;
+    }
+    
+    input {
+        -webkit-transform: scale(1.6);
+    }
+    
+    label {
+        display: block;
+        padding: 0.2em;
+    }
+    #recognisedImage {
+        height: 60px;
+        width: auto;
+        margin: auto;
+    }
+        #backbutton{
+          position: absolute;
+            left: 0px;
+            width: 100%;
+            
+        }
+        #recievedImg{
+            
+        width: 100%; 
+            height: 100%;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    
+    <button class="bigButton" onclick="back()" id=backbutton>Back</button>
+  
+    
+    
+    <img id = "recievedImg" name= "recieved" src="">
+         
+            
+   
+</body>
+<script>
+document.recieved.src = localStorage.getItem("Link");
+function back(){
+    
+    location.reload(); 
+    window.open("index.html");
+}
+</script>
+</html>

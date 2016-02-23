@@ -1,0 +1,9 @@
+# view AndroidManifest.xml #generated:7
+-keep class com.nik.example.MainActivity { <init>(...); }
+
+# view res/layout/fragment_cordova.xml #generated:7
+-keep class org.apache.cordova.CordovaWebView { <init>(...); }
+
+# onClick res/layout/fragment_scan.xml #generated:7
+-keepclassmembers class * { *** onPreviewTapped(...); }
+
